@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Musical Structure App</string>
+    <string name="boot_song">Boot</string>
+    <string name="songs">Songs</string>
+    <string name="recently_added">Recently added</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="albums">Albums</string>
+    <string name="artists">Artists</string>
+    <string name="your_music">Your Music</string>
+</resources>
