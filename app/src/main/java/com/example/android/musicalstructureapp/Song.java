@@ -1,31 +1,31 @@
 package com.example.android.musicalstructureapp;
 
 public class Song {
-    private String artistName;
-    private String album;
-    private int albumImage;
-    private String song;
+    private String mArtistName;
+    private String mAlbum;
+    private int mAlbumImage;
+    private String mSong;
 
-    public Song(String artistName, String album, int albumImage, String song) {
-        this.artistName = artistName;
-        this.album = album;
-        this.albumImage = albumImage;
-        this.song = song;
+    public Song(String mArtistName, String mAlbum, int mAlbumImage, String mSong) {
+        this.mArtistName = mArtistName;
+        this.mAlbum = mAlbum;
+        this.mAlbumImage = mAlbumImage;
+        this.mSong = mSong;
     }
 
-    public String getArtistName() {
-        return artistName;
+    public String getmArtistName() {
+        return mArtistName;
     }
 
-    public String getAlbum() {
-        return album;
+    public String getmAlbum() {
+        return mAlbum;
     }
 
-    public int getAlbumImage() {
-        return albumImage;
+    public int getmAlbumImage() {
+        return mAlbumImage;
     }
 
-    public String getSong() {
-        return song;
+    public String getmSong() {
+        return mSong;
     }
 }

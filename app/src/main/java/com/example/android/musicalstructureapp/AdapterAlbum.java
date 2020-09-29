@@ -25,16 +25,17 @@ public class AdapterAlbum extends ArrayAdapter<Song> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.albums_list, null);
-        TextView textView = (TextView) v.findViewById(R.id.album);
-        TextView textView2 = (TextView) v.findViewById(R.id.artist);
-        ImageView imageView = (ImageView) v.findViewById(R.id.image);
-        imageView.setImageResource(songsList.get(position).getAlbumImage());
-        textView2.setText(songsList.get(position).getArtistName());
-        textView.setText(songsList.get(position).getAlbum());
-        return v;
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.albums_list, null);
+        }
+        TextView textView = (TextView) convertView.findViewById(R.id.album);
+        TextView textView2 = (TextView) convertView.findViewById(R.id.artist);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.image);
+        imageView.setImageResource(songsList.get(position).getmAlbumImage());
+        textView2.setText(songsList.get(position).getmArtistName());
+        textView.setText(songsList.get(position).getmAlbum());
+        return convertView;
     }
 }
 

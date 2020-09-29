@@ -36,14 +36,5 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/now_song"
             android:layout_centerHorizontal="true" />
-
-        <Button
-            android:id="@+id/main_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="16dp"
-            android:text="@string/main_menu" />
     </RelativeLayout>
 </layout>

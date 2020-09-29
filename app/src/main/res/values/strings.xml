@@ -7,4 +7,5 @@
     <string name="albums">Albums</string>
     <string name="artists">Artists</string>
     <string name="your_music">Your Music</string>
+    <string name="now_playing">Now Playing</string>
 </resources>

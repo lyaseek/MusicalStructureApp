@@ -1,34 +1,54 @@
 package com.example.android.musicalstructureapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.android.musicalstructureapp.databinding.ActivityNowPlayingBinding;
 
 public class NowPlaying extends AppCompatActivity {
-    static Boolean v = false;
+    static boolean isSongSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_now_playing);
-        ActivityNowPlayingBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_now_playing);
+        ActivityNowPlayingBinding binding = DataBindingUtil.setContentView(NowPlaying.this, R.layout.activity_now_playing);
         binding.nowImage.setImageResource(getIntent().getIntExtra("image", 2));
-        binding.nowArtist.setText(getIntent().getStringExtra("artist"));
         binding.nowSong.setText(getIntent().getStringExtra("song"));
-        Intent intent = new Intent(this, MainActivity.class);
-        binding.mainMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                v = true;
-                intent.putExtra("image", getIntent().getIntExtra("image", 2));
-                intent.putExtra("song", getIntent().getStringExtra("song"));
-                startActivity(intent);
-            }
-        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = new MenuInflater(getApplicationContext());
+        inflater.inflate(R.menu.menu_current_song, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.main_menu:
+                isSongSelected = true;
+                MainActivity.mainMenu.putExtra("image", getIntent().getIntExtra("image", 2));
+                MainActivity.mainMenu.putExtra("song", getIntent().getStringExtra("song"));
+                startActivity(MainActivity.mainMenu);
+                break;
+            case R.id.albums:
+                startActivity(MainActivity.albumIntent);
+                break;
+            case R.id.artists:
+                startActivity(MainActivity.artistsIntent);
+                break;
+            case R.id.songs:
+                startActivity(MainActivity.songsIntent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
